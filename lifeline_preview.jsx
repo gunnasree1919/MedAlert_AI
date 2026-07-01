@@ -319,8 +319,12 @@ async function sendOneSMS(to, body, label) {
   console.log("[SMS] Sending to", label, "("+to+") ...");
 
   try {
+const API =
+window.location.hostname === "localhost"
+  ? "http://localhost:3000"
+  : "https://medalert-ai-qlzj.onrender.com";
 
-    const res = await fetch("http://localhost:3000/send-sms", {
+const res = await fetch(`${API}/send-sms`, { {
 
       method: "POST",
 
